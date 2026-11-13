@@ -944,3 +944,25 @@ textarea {
 .calendar-detail { margin-top:20px; padding-top:16px; border-top:1px solid #334451; }
 .calendar-detail .primary { margin-top:16px; }
 @media(max-width:600px) { .calendar-grid { gap:4px; } .calendar-day { min-height:64px; } .calendar-toolbar h3 { font-size:16px; } }
+
+.mood-picker { margin-bottom:32px; padding:8px 0 24px; border-bottom:1px solid #43505a; }
+.mood-ornament { display:flex; align-items:center; gap:14px; justify-content:center; color:#C5A46D; font-size:27px; }
+.mood-ornament::before,.mood-ornament::after { content:""; height:1px; width:25%; background:linear-gradient(90deg,transparent,#C5A46D); }
+.mood-ornament::after { transform:rotate(180deg); }
+.mood-picker h2 { text-align:center; font-family:Georgia,serif; font-size:clamp(29px,4vw,43px); margin:16px 0 8px; }
+.mood-intro,.mood-reassurance { text-align:center; color:#b6c0c7; }
+.mood-options { display:grid; gap:12px; margin:24px 0; }
+.mood-option { position:relative; display:block; cursor:pointer; }
+.mood-option input { position:absolute; width:1px; height:1px; opacity:0; }
+.mood-card { position:relative; display:flex; align-items:center; gap:20px; min-height:88px; padding:15px 22px; border:1px solid #65717a; border-radius:3px 14px 3px 14px; background:linear-gradient(135deg,#22303d55,transparent 55%),#111b24; transition:border-color .15s,box-shadow .15s; }
+.mood-radio { width:21px; height:21px; flex-shrink:0; border:1.5px solid #ccd6db; border-radius:50%; }
+.mood-emblem { color:var(--mood-color); flex-shrink:0; filter:drop-shadow(0 1px 4px #000); }
+.mood-label { font-family:Georgia,serif; font-size:clamp(21px,3vw,29px); color:#E8EDF2; }
+.mood-label small { display:block; font-family:system-ui,sans-serif; font-size:11px; color:#aab8c2; margin-top:4px; }
+.mood-option input:checked + .mood-card { border-color:#a9e7f4; box-shadow:0 0 0 1px #91CDE8,0 0 17px #91cde825,inset 0 0 24px #91cde80b; }
+.mood-option input:checked + .mood-card .mood-radio { background:#91CDE8; box-shadow:inset 0 0 0 4px #17212B; border-color:#bcefff; }
+.mood-option input:focus-visible + .mood-card { outline:3px solid #C5A46D; outline-offset:4px; }
+fieldset:disabled .mood-option { cursor:default; opacity:.6; }
+.mood-help { font-size:12px; line-height:1.6; color:#aab8c2; text-align:center; }
+@media(max-width:600px) { .mood-card { min-height:78px; padding:12px 14px; gap:16px; } .mood-emblem { width:34px; height:34px; } }
+@media(prefers-reduced-motion:reduce) { .mood-card { transition:none; } }

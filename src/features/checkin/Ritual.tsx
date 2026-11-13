@@ -1,3 +1,4 @@
+import { MoodPicker } from "./MoodPicker";
 import { useEffect, useState, type FormEvent } from "react";
 import { Check, Feather } from "lucide-react";
 import {
@@ -95,6 +96,7 @@ export function RitualForm({
       )}
       <fieldset key={row?.revision ?? 0} disabled={disabled || busy}>
         <legend className="sr-only">Napi állapotfelmérés</legend>
+        <MoodPicker value={scores.mood} onChange={(value) => { setDirty(true); setScores({ ...scores, mood: value }); }} />
         <div className="score-grid">
           {metrics.map(([key, label], i) => (
             <label className="score-input" key={key}>
