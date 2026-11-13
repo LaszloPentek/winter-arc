@@ -1,3 +1,5 @@
+import { Achievements } from "../achievements/Achievements";
+import { fetchXpEvents } from "../../services/achievements";
 import { useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -7,9 +9,9 @@ export function Quests({user}:{user?:string}) {
  const [title,setTitle]=useState(""); const draft=useRef(crypto.randomUUID());
  const [busy,setBusy]=useState(false); const [message,setMessage]=useState(""); const [archive,setArchive]=useState(false);
  const query=useQuery({queryKey:["quests",user],enabled:!!user,refetchInterval:30000,retry:1,queryFn:async()=>{
-  const [tasks,xp]=await Promise.all([supabase!.from("todos").select("id,title,completed,archived,revision").eq("user_id",user!).order("created_at"),supabase!.from("xp_events").select("points").eq("user_id",user!)]);
-  if(tasks.error||xp.error) throw new Error("A küldetések nem tölthetők be. Ellenőrizd a kapcsolatot és az adatbázis beállítását.");
-  return {tasks:tasks.data as Todo[],xp:xp.data.reduce((sum,e)=>sum+e.points,0)};
+  const [tasks,xp]=await Promise.all([supabase!.from("todos").select("id,title,completed,archived,revision").eq("user_id",user!).order("created_at"),fetchXpEvents(user!)]);
+  if(tasks.error) throw new Error("A küldetések nem tölthetők be. Ellenőrizd a kapcsolatot és az adatbázis beállítását.");
+  return {tasks:tasks.data as Todo[],events:xp,xp:xp.reduce((sum,e)=>sum+e.points,0)};
  }});
  async function save(action:string,task?:Todo) {
   if(!navigator.onLine) {setMessage("A teendők módosításához internetkapcsolat kell. A beírt szöveg itt marad.");return;}
@@ -33,6 +35,7 @@ export function Quests({user}:{user?:string}) {
  <p role="status">{message}</p><div className="quest-toolbar"><button onClick={()=>setArchive(!archive)}>{archive?"Aktív teendők":"Archívum"}</button><button disabled={busy||query.isFetching} onClick={()=>void query.refetch()}>Lista frissítése</button></div>
  <ul className="quest-list">{query.data?.tasks.filter(t=>t.archived===archive).map(t=><li className="panel" key={t.id}><label><input type="checkbox" checked={t.completed} disabled={busy||t.archived} onChange={()=>void save(t.completed?"reopen":"complete",t)}/><span className={t.completed?"quest-done":""}>{t.title}</span></label><button disabled={busy} onClick={()=>void save(t.archived?"restore":"archive",t)}>{t.archived?"Visszaállítás":"Archiválás"}</button></li>)}</ul>
  {query.data&&!query.data.tasks.some(t=>t.archived===archive)&&<p>{archive?"Nincsenek archivált teendők.":"Még nincs teendőd. Adj hozzá egy saját, teljesíthető lépést."}</p>}
+ {query.data?.events&&<Achievements events={query.data.events}/> }
  </>}
  </section>;
 }
