@@ -1,3 +1,4 @@
+import { CoverSettings } from "./CoverSettings";
 import { useState, type FormEvent } from "react";
 import { LockKeyhole, Mail } from "lucide-react";
 import { configured, supabase } from "../../services/client";
@@ -142,6 +143,7 @@ export function Settings({
         )}
         <p role="status">{message}</p>
       </section>
+      {session && <CoverSettings key={session.user.id} user={session.user.id} />}
       <section className="panel settings-panel">
         <h2>Adatvédelem</h2>
         <p>

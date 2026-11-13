@@ -925,3 +925,5 @@ textarea {
   .personal-cover .hero-copy { padding: 20px; }
   .personal-cover .hero-copy h1 { font-size: 27px; }
 }
+
+.cover-preview { display:block; width:100%; max-height:360px; object-fit:contain; background:#0b1017; border-radius:12px; margin:16px 0; }

@@ -217,6 +217,7 @@ function Shell() {
                   baseline={records.data?.baseline ?? null}
                   pending={pending}
                   signedIn={Boolean(session)}
+                  user={session?.user.id}
                 />
               }
             />

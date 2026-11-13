@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCover, useBlobUrl } from "../../hooks/useCover";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Feather, Moon, Shield, Snowflake } from "lucide-react";
 import {
@@ -16,13 +16,17 @@ export function Dashboard({
   baseline,
   pending,
   signedIn,
+  user,
 }: {
   rows: RecordRow[];
   baseline: Baseline | null;
   pending: Pending[];
   signedIn: boolean;
+  user?: string;
 }) {
-  const [showCover, setShowCover] = useState(import.meta.env.DEV);
+  const cover = useCover(user);
+  const coverUrl = useBlobUrl(cover.data);
+  const showCover = Boolean(coverUrl);
   const date = today();
   const progress = challengeProgress(date);
   const current = rows.find((r) => r.day === date);
@@ -31,7 +35,7 @@ export function Dashboard({
   return (
     <>
       <header className={showCover ? "hero personal-cover" : "hero"}>
-        {showCover && <img className="personal-cover-image" src={`${import.meta.env.BASE_URL}__winter-private-cover`} alt="Winter Arc — The Quiet Season, személyes téli fantasy borító" onError={() => setShowCover(false)} />}
+        {showCover && <img className="personal-cover-image" src={coverUrl} alt="Winter Arc — The Quiet Season, személyes téli fantasy borító" />}
         <div className="hero-copy">
           <span className="eyebrow">
             <Snowflake size={16} />
