@@ -1,3 +1,4 @@
+import { Quests } from "../features/quests/Quests";
 import { MoodCalendar } from "../features/calendar/MoodCalendar";
 import { useState } from "react";
 import { HashRouter, Link, NavLink, Route, Routes } from "react-router-dom";
@@ -101,7 +102,7 @@ function Shell() {
             <NavLink end={path === "/"} key={path} to={path}>
               <Icon size={19} />
               <span>{label}</span>
-              {["Quests", "Journal"].includes(label) && <small>P1</small>}
+              {["Journal"].includes(label) && <small>P1</small>}
             </NavLink>
           ))}
         </nav>
@@ -325,7 +326,7 @@ function Shell() {
             />
             <Route
               path="/quests"
-              element={<Planned name="A saját küldetéseid" phase="P1" />}
+              element={<Quests user={session?.user.id} />}
             />
             <Route
               path="/journal"

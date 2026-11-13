@@ -17,3 +17,9 @@ Achievementek, szabálymotor, feloldások, saját trófeák és privát Storage.
 
 ## P4 — alapok előkészítve, nincs teljesítve
 Alkalmazáscache és PWA manifest; GitHub Actions workflow; alap offline sor. Hátravan: végleges PWA telepítési audit, offline szerkesztési UX bővítése, teljes JSON import/export, adattörlés/fióktörlés felület, teljes hozzáférhetőségi audit, éles GitHub Pages publikálás. A konfliktusmentés JSON-ja nem azonos a teljes fiókexporttal.
+
+## 2026-11-13 – XP és teendők
+Elkészült a Quests teendőlista: hozzáadás, teljesítés/visszanyitás, archiválás/visszaállítás. Online mentés, tulajdonosi RLS, verzióellenőrzés. Jelenleg nincs offline teendőmódosítás vagy határidő/ismétlődés. A napi mérés első mentése 10 XP, a teendő első teljesítése 20 XP; 100 XP/szint; nincs levonás. Az újrapipálás nem ad új XP-t. Az XP-jutalmakat a szerver állítja elő. A 004 migráció az éles Supabase-ben alkalmazva.
+Az ötkártyás hangulatválasztó szintén elkészült; a részletes érzelmek és kiváltó okok még hátravannak.
+A P3 privát Storage része a saját borítóhoz már működik; a trófeák még nincsenek kész. A P4 GitHub Pages publikálása már működik. Az automatikus frissítésjelzés még hátravan.
+A Health Connect megvalósítási terv: HEALTH_CONNECT.md. Ez még nem működő szinkron.
