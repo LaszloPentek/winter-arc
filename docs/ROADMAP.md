@@ -1,12 +1,13 @@
 # Állapot és következő lépések
 
-## P0 — implementálva, éles elfogadás függőben
+## P0 — éles alapok működnek
 React/TypeScript/Vite/Tailwind; reszponzív design; Router; Supabase e-mailes OTP belépés és kijelentkezés; SQL-migrációk; RLS; baseline; napi mérések mentése/szerkesztése; Sanctuary; mérési előzmények; IndexedDB; idempotens mentési sor; verziókonfliktus; Realtime és célzott cache-frissítés.
 
-A Supabase-projektet a felhasználó még nem hozta létre. Emiatt az igazi e-mailküldés, a hosztolt adatbázis és a telefon–PC elfogadási próba nincs kész. Ez az egyetlen oka, hogy P0 nem nevezhető élesben elfogadottnak. P1 nem kezdődött el.
+A Supabase és GitHub Pages beállítva. A felhasználó visszajelzése szerint a belépés, mentés, többeszközös használat és saját borító működik. A teljes offline/konfliktus elfogadási lista továbbra is ellenőrzendő.
 
-## P1 — még nincs implementálva
-Érzelemkerék, naptár, triggerek, detox, szokások, napló. Az energia/motiváció mezők már P0-ban megvannak. A navigáció későbbi funkciói jelölt információs oldalak.
+## P1 — megkezdve
+Elkészült a Chronicle havi/heti hangulatnaptára, mentett és függő napi értékekkel, napi részletekkel és a mérés megnyitásával. A hiányzó nap nem nulla pont. Érzelemszűrés az érzelemrögzítés után kerül bele.
+Hátravan: érzelemkerék, kiváltó okok, detox, szokások és napló. Az energia/motiváció mezők már P0-ban megvannak.
 
 ## P2 — még nincs implementálva
 Grafikonok, heti/havi bontások, műszak-összehasonlítás, heti reflexió, szabályalapú összefoglaló, Sanctuary Mode. Recharts függőség előkészítve, nincs kitalált statisztika.

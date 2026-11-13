@@ -1,3 +1,4 @@
+import { MoodCalendar } from "../features/calendar/MoodCalendar";
 import { useState } from "react";
 import { HashRouter, Link, NavLink, Route, Routes } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
@@ -290,6 +291,7 @@ function Shell() {
                       A mentett méréseid. A hiányzó napoknak nincs pontszámuk.
                     </p>
                   </header>
+                  <MoodCalendar rows={rows} pending={pending} onSelect={setDate} />
                   {!rows.length ? (
                     <section className="panel">
                       <h2>Még nincs felhőben rögzített nap.</h2>
