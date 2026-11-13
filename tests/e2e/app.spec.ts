@@ -50,5 +50,9 @@ test("settings explains setup and unavailable phases are explicit", async ({
     page.getByText("A felhőkapcsolat még nincs beállítva.", { exact: false }),
   ).toBeVisible();
   await page.goto("/#/quests");
+  await expect(page.getByRole("heading", { name: "A saját küldetéseid" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Jelentkezz be a teendőidhez." })).toBeVisible();
+  await expect(page.getByRole("progressbar")).toHaveCount(0);
+  await page.goto("/#/journal");
   await expect(page.getByText("Következő fejezet · P1")).toBeVisible();
 });
