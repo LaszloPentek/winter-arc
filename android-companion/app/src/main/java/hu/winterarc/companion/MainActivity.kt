@@ -1,3 +1,5 @@
+@file:OptIn(androidx.health.connect.client.feature.ExperimentalMindfulnessSessionApi::class)
+
 package hu.winterarc.companion
 
 import android.os.Bundle
