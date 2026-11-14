@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
       tailwind(),
       VitePWA({
         registerType: "prompt",
-        injectRegister: "auto",
+        injectRegister: false,
         manifest: {
           name: "Winter Arc — The Quiet Season",
           short_name: "Winter Arc",

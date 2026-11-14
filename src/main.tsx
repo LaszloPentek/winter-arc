@@ -2,6 +2,7 @@ import { StrictMode, Component, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "./app/Auth";
+import { UpdateNotice } from "./app/UpdateNotice";
 import { App } from "./app/App";
 import "./styles/app.css";
 class ErrorBoundary extends Component<
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")!).render(
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
+          <UpdateNotice />
           <App />
         </AuthProvider>
       </QueryClientProvider>

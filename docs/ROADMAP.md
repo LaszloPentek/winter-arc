@@ -23,3 +23,12 @@ Elkészült a Quests teendőlista: hozzáadás, teljesítés/visszanyitás, arch
 Az ötkártyás hangulatválasztó szintén elkészült; a részletes érzelmek és kiváltó okok még hátravannak.
 A P3 privát Storage része a saját borítóhoz már működik; a trófeák még nincsenek kész. A P4 GitHub Pages publikálása már működik. Az automatikus frissítésjelzés még hátravan.
 A Health Connect megvalósítási terv: HEALTH_CONNECT.md. Ez még nem működő szinkron.
+
+## 2026-11-14: teendők és alkalmazásfrissítés
+
+- Teendők címének és opcionális határidejének szerkesztése, verzióütközésnél a saját, eredeti és felhőváltozat megőrzésével.
+- Ma (lejártakkal), Közelgő (következő 7 nap), Később (távolabbi és dátum nélküli), valamint Kész és Archívum nézet.
+- Szerkesztés nem ad új XP-t. Az eredeti teljesítési és archiválási műveletek változatlanok.
+- Az új service worker kézi, mentésre figyelmeztető frissítésjelzést kap; másik lap aktiválása nem tölt újra automatikusan.
+- Telepítési sorrend: előbb `supabase/migrations/202611140005_todo_details.sql` a Supabase SQL Editorban, utána a webalkalmazás publikálása. A migráció régi kliensekkel kompatibilis.
+- Ismétlődő teendők és offline teendőmentési sor még nincs ebben a csomagban.

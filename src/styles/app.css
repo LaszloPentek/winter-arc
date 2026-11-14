@@ -994,3 +994,11 @@ fieldset:disabled .mood-option { cursor:default; opacity:.6; }
 .achievement progress { display:block; width:100%; height:8px; margin:14px 0 6px; accent-color:#C5A46D; }
 .achievement-count,.achievement-note { font-size:.8rem; color:#9CAAB8; }
 @media(max-width:680px) { .achievement-grid { grid-template-columns:1fr; } }
+.quest-toolbar button[aria-pressed="true"] { border-color:#91CDE8; color:#91CDE8; }
+.todo-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.todo-due,.todo-view-help { color:#9CAAB8; font-size:.85rem; }
+.todo-due { margin:6px 0 0 38px; }
+.todo-editor [role="alert"] { padding:16px; border-left:3px solid #C5A46D; overflow-wrap:anywhere; }
+.update-notice { background:#17212B; border-bottom:2px solid #C5A46D; padding:16px 24px; position:relative; z-index:50; }
+.update-notice p { margin:0 0 12px; }
+.update-notice > div { display:flex; gap:12px; flex-wrap:wrap; }
